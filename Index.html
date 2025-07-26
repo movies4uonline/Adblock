@@ -14,11 +14,7 @@
       color: #fff;
       font-family: sans-serif;
     }
-    #main-content {
-      display: none;
-    }
-
-    #unlock-section {
+    #main-content, #unlock-section, #adblock-warning {
       display: none;
     }
 
@@ -35,11 +31,6 @@
       color: white;
       border-radius: 5px;
       cursor: pointer;
-    }
-
-    .warning {
-      color: #ff5252;
-      font-weight: bold;
     }
      .slider-container {
       position: relative;
@@ -384,12 +375,19 @@
 </head>
 <body>
     
-    <!-- 🔐 AdBlock users only -->
+
+<!-- 🔐 Section for AdBlock Users -->
 <div id="unlock-section">
   <h2>🛑 AdBlock Detected</h2>
-  <p class="warning">To access this website, please <strong>disable AdBlock</strong><br>OR pay ₹10 via UPI and enter the unlock code below 👇</p>
-  <input type="text" id="tokenInput" placeholder="Enter Access Code" />
+  <p>To use this website, please pay ₹10 via UPI and get a code from admin 👇</p>
+  <input type="text" id="tokenInput" placeholder="Enter Code" />
   <button onclick="checkToken()">Unlock ✅</button>
+</div>
+
+<!-- ❌ Warning to Remove AdBlock -->
+<div id="adblock-warning">
+  <h2>🚫 AdBlock Detected</h2>
+  <p>Please disable AdBlock or pay ₹10 to access content.</p>
 </div>
 
   <div class="brand">Movies4U</div>
@@ -745,10 +743,9 @@
 </div>
 
 <script>
-  const VALID_TOKEN = "MOVIE30"; // Set your secret unlock code here
+  const VALID_TOKEN = "MOVIE30";
   const VALIDITY_DAYS = 30;
 
-  // 🔑 Token Check Function
   function checkToken() {
     const userToken = document.getElementById("tokenInput").value.trim();
     if (userToken === VALID_TOKEN) {
@@ -758,11 +755,10 @@
       alert("✅ Access granted for 30 days!");
       window.location.reload();
     } else {
-      alert("❌ Invalid code. Please contact admin.");
+      alert("❌ Invalid Code. Please contact admin.");
     }
   }
 
-  // 🧠 Main Logic on Page Load
   window.onload = function () {
     let ad = document.createElement('div');
     ad.className = 'adsbox';
@@ -774,7 +770,6 @@
       ad.remove();
 
       if (isAdBlocked) {
-        // Check if user has already paid
         const paid = localStorage.getItem("paid_user");
         const date = localStorage.getItem("unlock_date");
 
@@ -786,19 +781,15 @@
           if (daysPassed <= VALIDITY_DAYS) {
             document.getElementById("main-content").style.display = "block";
           } else {
-            // Expired
             localStorage.removeItem("paid_user");
             localStorage.removeItem("unlock_date");
             document.getElementById("unlock-section").style.display = "block";
-            alert("⚠️ Your access has expired. Please pay again.");
+            alert("⚠️ Access expired. Please pay again.");
           }
         } else {
-          // No access yet
           document.getElementById("unlock-section").style.display = "block";
         }
-
       } else {
-        // No AdBlock → show full site
         document.getElementById("main-content").style.display = "block";
       }
     }, 1000);
@@ -879,4 +870,4 @@
 </script>
 
 </body>
-	    </html>
+	</html>
