@@ -1,62 +1,49 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="UTF-8" />
-  <title>Protected Page</title>
+  <meta charset="UTF-8">
+  <title>AdBlock Checker</title>
   <style>
-    #main { display: none; }
-    #verifyBox { margin-top: 50px; text-align: center; }
+    #adblock-message {
+      display: none;
+      background: #f44336;
+      color: white;
+      padding: 20px;
+      text-align: center;
+      font-family: sans-serif;
+    }
   </style>
 </head>
 <body>
-  <div id="verifyBox">
-    <h3>Enter Access Code</h3>
-    <input type="text" id="accessCode" placeholder="Enter code" />
-    <button onclick="verifyCode()">Verify</button>
-    <p id="message"></p>
+
+  <div id="adblock-message">
+    ⚠️ AdBlock കണ്ടെത്തി! ദയവായി അത് disable ചെയ്യൂ website support ചെയ്യാൻ.
   </div>
 
-  <div id="main">
-    <h1>🔐 Protected Content</h1>
-    <p>Now you have access!</p>
+  <div id="main-content">
+    <h2>Welcome to My Site</h2>
+    <p>ഇതാണ് നിങ്ങൾ കാണേണ്ട content.</p>
+  </div>
+
+  <!-- Fake Ad div to detect blocker -->
+  <div id="ads-test" style="height: 1px; width: 1px; position: absolute; left: -9999px;">
+    <script>
+      // Fake ad code
+      document.write("<span id='adsbygoogle'></span>");
+    </script>
   </div>
 
   <script>
-    const CORRECT_CODE = "12345";
-    const VALIDITY_DAYS = 30;
-
-    function checkAccess() {
-      const access = localStorage.getItem("access");
-      const accessDate = localStorage.getItem("access_date");
-      if (access === "granted" && accessDate) {
-        const now = new Date();
-        const then = new Date(accessDate);
-        const diff = (now - then) / (1000 * 60 * 60 * 24);
-        if (diff < VALIDITY_DAYS) {
-          showContent();
-        } else {
-          localStorage.clear();
-        }
+    // Delay detection to allow adblock to act
+    setTimeout(function() {
+      var testAd = document.getElementById("adsbygoogle");
+      if (!testAd || testAd.offsetHeight === 0) {
+        // Adblock detected
+        document.getElementById("main-content").style.display = "none";
+        document.getElementById("adblock-message").style.display = "block";
       }
-    }
-
-    function verifyCode() {
-      const input = document.getElementById("accessCode").value;
-      if (input === CORRECT_CODE) {
-        localStorage.setItem("access", "granted");
-        localStorage.setItem("access_date", new Date().toISOString());
-        showContent();
-      } else {
-        document.getElementById("message").innerText = "❌ Wrong Code!";
-      }
-    }
-
-    function showContent() {
-      document.getElementById("verifyBox").style.display = "none";
-      document.getElementById("main").style.display = "block";
-    }
-
-    checkAccess();
+    }, 100);
   </script>
+
 </body>
 </html>
