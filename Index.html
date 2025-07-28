@@ -1,49 +1,60 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>AdBlock Checker</title>
-  <style>
-    #adblock-message {
-      display: none;
-      background: #f44336;
-      color: white;
-      padding: 20px;
-      text-align: center;
-      font-family: sans-serif;
-    }
-  </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FlixGo Clone</title>
+  <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
 
-  <div id="adblock-message">
-    ⚠️ AdBlock കണ്ടെത്തി! ദയവായി അത് disable ചെയ്യൂ website support ചെയ്യാൻ.
+<header>
+  <h1 class="logo">🎬 FlixGo</h1>
+</header>
+
+<section class="category">
+  <div class="title-row">
+    <h2>Latest Movies</h2>
+    <a href="latest.html" class="see-more">See More ›</a>
   </div>
-
-  <div id="main-content">
-    <h2>Welcome to My Site</h2>
-    <p>ഇതാണ് നിങ്ങൾ കാണേണ്ട content.</p>
+  <div class="scroll-row">
+    <!-- Movie cards -->
+    <div class="movie-card" onclick="openModal('Leo')">
+      <img src="assets/posters/leo.jpg" alt="Leo">
+      <span class="badge">HD</span>
+      <p class="title">Leo (2023)</p>
+    </div>
+    <!-- Add more cards here -->
   </div>
+</section>
 
-  <!-- Fake Ad div to detect blocker -->
-  <div id="ads-test" style="height: 1px; width: 1px; position: absolute; left: -9999px;">
-    <script>
-      // Fake ad code
-      document.write("<span id='adsbygoogle'></span>");
-    </script>
+<section class="category">
+  <div class="title-row">
+    <h2>South Dubbed</h2>
+    <a href="south.html" class="see-more">See More ›</a>
   </div>
+  <div class="scroll-row">
+    <div class="movie-card" onclick="openModal('RRR')">
+      <img src="assets/posters/rrr.jpg" alt="RRR">
+      <span class="badge">4K</span>
+      <p class="title">RRR</p>
+    </div>
+  </div>
+</section>
 
-  <script>
-    // Delay detection to allow adblock to act
-    setTimeout(function() {
-      var testAd = document.getElementById("adsbygoogle");
-      if (!testAd || testAd.offsetHeight === 0) {
-        // Adblock detected
-        document.getElementById("main-content").style.display = "none";
-        document.getElementById("adblock-message").style.display = "block";
-      }
-    }, 100);
-  </script>
+<!-- Modal -->
+<div id="movieModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal()">×</span>
+    <h3 id="modalTitle">Movie Title</h3>
+    <a id="watchLink" href="#" target="_blank">▶ Watch</a>
+    <a id="downloadLink" href="#" target="_blank">⬇ Download</a>
+    <a id="telegramLink" href="#" target="_blank">💬 Telegram</a>
+    <!-- Firebase Comments here -->
+    <div id="firebase-comments"></div>
+  </div>
+</div>
 
+<script src="js/script.js"></script>
 </body>
 </html>
