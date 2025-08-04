@@ -1,0 +1,42 @@
+[
+  {
+    "id": "1",
+    "title": "Aavesham (2024)",
+    "poster": "https://image.tmdb.org/t/p/w500/mH9EfNvUxs2LOuI1wUFjzB1evW4.jpg",
+    "language": "Malayalam",
+    "badge": "HD",
+    "trailer": "https://www.youtube.com/watch?v=EXAMPLE1"
+  },
+  {
+    "id": "2",
+    "title": "Jailer (2023)",
+    "poster": "https://image.tmdb.org/t/p/w500/7w4fL4H3d7M8AHzAq8I8pW7N64b.jpg",
+    "language": "Tamil",
+    "badge": "4K",
+    "trailer": "https://www.youtube.com/watch?v=EXAMPLE2"
+  },
+  {
+    "id": "3",
+    "title": "Salaar (2023)",
+    "poster": "https://image.tmdb.org/t/p/w500/4OtRBvJhkurznnGtOLnLkSAhGSt.jpg",
+    "language": "Telugu",
+    "badge": "CAM",
+    "trailer": "https://www.youtube.com/watch?v=EXAMPLE3"
+  },
+  {
+    "id": "4",
+    "title": "Kalki 2898 AD (2024)",
+    "poster": "https://image.tmdb.org/t/p/w500/kN0yn8wzqRkH7Q51MrrYuiFXiWe.jpg",
+    "language": "Telugu",
+    "badge": "HD",
+    "trailer": "https://www.youtube.com/watch?v=EXAMPLE4"
+  },
+  {
+    "id": "5",
+    "title": "Thallumaala (2022)",
+    "poster": "https://image.tmdb.org/t/p/w500/3cZn1k8pytUDZtKPKQ4xpa7Dgxe.jpg",
+    "language": "Malayalam",
+    "badge": "HD",
+    "trailer": "https://www.youtube.com/watch?v=EXAMPLE5"
+  }
+]
