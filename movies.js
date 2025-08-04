@@ -2,13 +2,13 @@
 const movies = [
   {
     "title": "Ronth (2025)",
-    "poster": "https://image.tmdb.org/t/p/w500/abcd.jpg",
+    "poster": "avengers.jpg",
     "language": "Malayalam",
     "quality": "HD"
   },
   {
     "title": "The Marvels",
-    "poster": "https://image.tmdb.org/t/p/w500/xyz.jpg",
+    "poster": "avenges.jpg",
     "language": "English",
     "quality": "CAM"
   }
