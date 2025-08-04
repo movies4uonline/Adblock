@@ -41,8 +41,8 @@
     "name": "Ant Man",
     "imdb": 8.9,
     "date": "2017",
-    "sposter": "img/ant man.jpg",
-    "bposter": "img/ant man1.jpg",
+    "sposter": "ant man.jpg",
+    "bposter": "ant man1.jpg",
     "genre": "Action",
     "type": "movie",
     "url": "ant man.html",
@@ -54,8 +54,8 @@
     "name": "Avengers",
     "imdb": 9.9,
     "date": "2012",
-    "sposter": "img/avengers.jpg",
-    "bposter": "img/avengers1.jpg",
+    "sposter": "avengers.jpg",
+    "bposter": "avengers1.jpg",
     "genre": "Action",
     "type": "movie",
     "url": "avengers.html",
@@ -193,4 +193,5 @@
     "low": "video/spiderman 480ph.mp4",
     "medium": "video/spiderman 720ph.mp4",
     "high": "video/spiderman 1080ph.mp4"
+
 }]
