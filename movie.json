@@ -8,7 +8,7 @@
     "type": "series",
     "url": "the boys.html",
     "trailer": "john wick.webm",
-    "low": "video/theboys.webm",
+    "low": "jurasic world.webm",
     "medium": "video/the boys 720ph.mp4",
     "high": "video/the boys 1080ph.mp4"
 }, {
@@ -195,3 +195,4 @@
     "high": "video/spiderman 1080ph.mp4"
 
 }]
+
